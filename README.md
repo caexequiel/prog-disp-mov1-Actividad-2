@@ -9,6 +9,8 @@ Introducción
 A modo de práctica y aprovechando la oportunidad de la asignatura Programación de dispositivos móviles, se decidió resolver las actividades utilizando una interfaz gráfica con estilos y dinámicas.
 El trabajo completo se encuentra en el siguiente repositorio público:
 https://github.com/caexequiel/prog-disp-mov1-Actividad-2.git
+Se lo puede visualizar directamente desde el siguiente host:
+https://atrapadosporlaciencia.000webhostapp.com/
 
 Actividad:
 
