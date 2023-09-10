@@ -24,45 +24,63 @@ function datos_personales(){
 
     if(cuil === 0 || nombre === "" || apellido === "" || 
         fecha_nacimiento === null || nacionalidad === "" || 
-        cantidad_hijos === ""){
+        cantidad_hijos === 0){
         alert("Ingrese todos los datos solicitados")
     }
+
+    cuil = "CUIL: "+cuil;
+    nombre = "Nombre: "+nombre;
+    apellido = "Apellido: "+apellido;
+    fecha_nacimiento = "Fecha de nacimiento: "+fecha_nacimiento;
+    nacionalidad = "Nacionalidad: "+nacionalidad; 
+
+    
+
+    datos = [cuil,nombre,apellido,fecha_nacimiento,
+        nacionalidad,cantidad_hijos,estado_civil,
+        formosenio,trabaja];
 
     analizarTrabajo(trabaja);
 
     analizaFormosenio(formosenio);
-
-    datos = [cuil,nombre,apellido,fecha_nacimiento,
-        nacionalidad,cantidad_hijos,nacionalidad,cantidad_hijos,
-        estado_civil,formosenio,trabaja];
-
     //Agregamos un botón de enviar 2. Siempre que contador sea mayor a 0.
     agregarboton();
-
+    
 }
 
 function mostrarDatos() {
-    // Obtener el elemento con el ID "newform"
-    const newform = document.getElementById("listado");
-    let lista = [];
+
+    // Obtener el formulario
+    let form = document.getElementById("newform2");
+
+    // Crear el elemento h4
+    let h4 = document.createElement("h4");
+    h4.setAttribute("class", "resultado");
+    h4.setAttribute("id", "listado");
+
+    // Agregar el elemento h4 al formulario
+    form.appendChild(h4);
+
+    // Obtener el elemento con el ID "listado"
+    const listaVieja = document.getElementById("listado");
+
     // Eliminar los hijos del elemento "newform"
-    while (newform.firstChild) {
-      newform.removeChild(newform.firstChild);
+    while (listaVieja.firstChild) {
+        listaVieja.removeChild(listaVieja.firstChild);
     }
   
     // Agregar los elementos del array al elemento "newform"
-    for (let i = 0; i < lista.length; i++) {
-      const elemento = document.createElement("h4");
-      elemento.textContent = lista[i];
-      elemento.id = listado;
-      elemento.classList = resultado;
-      newform.appendChild(elemento);
+    for (let i = 0; i < datos.length; i++) {
+      let elemento = document.createElement("h4");
+      elemento.textContent = datos[i];
+      elemento.id = "listado";
+      listaVieja.appendChild(elemento);
     }
   }
 
 function agregarboton(){
     if (cont > 1){
-        // Obtener todos los elementos input con el ID "empresa"
+        // Obtener todos los elementos input con el ID "enviar2"
         let inputsBotones2 = document.querySelectorAll("#enviar2");
 
         // Eliminar los elementos botones
@@ -94,14 +112,13 @@ function agregarboton(){
         // Agrega el botón al formulario
         document.getElementById("newform").appendChild(boton2);
     }else{
-         // Obtener todos los elementos input con el ID "empresa"
+        /* // Obtener todos los elementos input con el ID "empresa"
          let enviar2 = document.querySelectorAll("#enviar2");
 
          // Eliminar los elementos input
          for (let boton2 of enviar2) {
             boton2.parentNode.removeChild(boton2);
-         }  
-        mostrarDatos();
+         }  */
     }
 }
 
@@ -113,21 +130,22 @@ function datos_personales2(){
     let empresa = document.getElementById("empresa").value;
     // Obtener el valor del input
     let domicilio_empresa = document.getElementById("domicilio").value;
-    
 
     if (empresa === "" || domicilio_empresa === "" || ciudad_nacimiento === ""){
-        alert("Ingrese todos los datos faltantes "+empresa+" "+
-        domicilio_empresa+" "+ciudad_nacimiento);
+        alert("Ingrese todos los datos faltantes");
     }else{
-        alert("los datos ingresados son:"+empresa+" "+
-        domicilio_empresa+" "+ciudad_nacimiento);
+
+        datos.push("Nació en: "+ciudad_nacimiento);
+        datos.push("Trabaja en: "+empresa);
+        datos.push("Su trabajo está en: "+domicilio_empresa);
+
         mostrarDatos()
     }    
 }
 
 function analizaFormosenio(formosenio){
-    if(formosenio === 'El usuario si es formoseño'){
-        // Obtener todos los elementos input con el ID "empresa"
+    if(formosenio === 'El usuario es formoseño'){
+        // Obtener todos los elementos input con el ID "nacimiento"
         let inputsNacimiento = document.querySelectorAll("#nacimiento");
         // Obtener la cantidad de elementos input con el ID "nacimiento"
         let cantidad = inputsNacimiento.length;
@@ -138,7 +156,7 @@ function analizaFormosenio(formosenio){
             let nacimiento = document.createElement("input");
             nacimiento.setAttribute("type", "text");
             nacimiento.setAttribute("class", "formulario");
-            nacimiento.setAttribute("placeholder", "Ingrese el nombre de la ciudad en donde nacio: ");
+            nacimiento.setAttribute("placeholder", "Ingrese el nombre de la ciudad en donde nació: ");
             nacimiento.setAttribute("name", "nacimiento");
             nacimiento.setAttribute("id", "nacimiento");
     
@@ -147,10 +165,6 @@ function analizaFormosenio(formosenio){
     
             // Colocar el input en el formulario
             input.appendChild(nacimiento);
-    
-            // Obtener el valor del input
-            let ciudad_nacimiento = document.getElementById("nacimiento").value;
-            datos.push(ciudad_nacimiento);
         }  
     }
     else{
@@ -161,13 +175,12 @@ function analizaFormosenio(formosenio){
         for (let Nacimiento of inputsNacimiento) {
             Nacimiento.parentNode.removeChild(Nacimiento);
         }
-        cont += -1;
     }
     
 }
 
 function analizarTrabajo(trabaja){
-    if (trabaja === 'El usuario si trabaja'){
+    if (trabaja === 'El usuario trabaja'){
 
         // Obtener todos los elementos input con el ID "empresa"
         let inputsEmpresa = document.querySelectorAll("#empresa");
@@ -202,13 +215,6 @@ function analizarTrabajo(trabaja){
             // Colocar el input en el formulario
             input.appendChild(inputEmpresa);
             input.appendChild(domicilio);
-
-            // Obtener el valor del input
-            let empresa = document.getElementById("empresa").value;
-            // Obtener el valor del input
-            let domicilio_empresa = document.getElementById("domicilio").value;
-            datos.push(empresa);
-            datos.push(domicilio_empresa);
         }
     }
     else{
@@ -256,8 +262,11 @@ function Trabaja(){
     let trabaja = ""; //1- Si, 2- No
     switch (valorSeleccionado) {
     case 'opción 1':
-        trabaja = 'El usuario si trabaja';
-        cont += 1;
+        trabaja = 'El usuario trabaja';
+        if (cont <2 ){
+            cont += 1;
+        }
+        
         break;
     case 'opción 2':
         trabaja = 'El usuario no trabaja';
@@ -273,8 +282,11 @@ function Formosenio(){
     let formosenio;
     switch (valorSeleccionado) {
     case 'opción 1':
-        formosenio = 'El usuario si es formoseño';
-        cont += 1;
+        formosenio = 'El usuario es formoseño';
+        if (cont <2 ){
+            cont += 1;
+        }
+        
         break;
     case 'opción 2':
         formosenio = 'El usuario no es formoseño';
