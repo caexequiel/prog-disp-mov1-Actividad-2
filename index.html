@@ -1,11 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Actividad 2</title>
 </head>
 <body>
-    
+    <div>
+        <div class="titulo">Actividad 2 - Ingrese sus datos: </div>   
+        <section class="actividad2" id = newform>
+            <input class = "formulario" type="number" name="cuil" id="cuil" placeholder="Ingrese su CUIL ">
+            <input class = "formulario" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre ">
+            <input class = "formulario" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido ">
+            <input class = "formulario" type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="Ingrese su fecha de nacimiento ">
+            <input class = "formulario" type="text" name="nacionalidad" id="nacionalidad" placeholder="Ingrese su nacionalidad ">
+            
+            <form class = "formulario2" action="/" method="post">
+                <h4>Seleccione su estado civil:</h4>
+                <select class = "formulario3" id="estado_civil-select">
+                  <option value="opción 1">1- casado</option>
+                  <option value="opción 2">2- soltero</option>
+                  <option value="opción 3">3- divorciado</option>
+                  <option value="opción 3">4- otros</option>
+                </select>
+            </form>
+
+
+            <form class = "formulario2" action="/" method="post">
+                <h4>¿Trabaja?</h4>
+                <select class = "formulario3" id="trabaja-select">
+                  <option value="opción 1">1- Si</option>
+                  <option value="opción 2">2- No</option>
+                </select>
+            </form>
+
+            <form class = "formulario2" action="/" method="post">
+                <h4>¿Es formoseño?</h4>
+                <select class = "formulario3" id="formosenio-select">
+                  <option value="opción 1">1- Si</option>
+                  <option value="opción 2">2- No</option>
+                </select>
+            </form>
+
+            <input class = "formulario" type="number" name="hijos" id="hijos" placeholder="¿Cuántos hijos tiene?">
+            <input class = "botones" type="button" id="enviar1" value="ENVIAR" onclick="datos_personales()">
+            <h4 class = "resultado" id="listado"></h4>
+            
+        </section>
+        <script src="script.js"></script> 
+    </div>
 </body>
 </html>
