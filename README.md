@@ -12,5 +12,5 @@ https://github.com/caexequiel/prog-disp-mov1-Actividad-2.git
 
 Actividad:
 
-![imagen]([https://www3.animeflv.net/assets/animeflv/img/logo.png?v=2.3])
+![imagen](https://www3.animeflv.net/assets/animeflv/img/logo.png?v=2.3)
 
