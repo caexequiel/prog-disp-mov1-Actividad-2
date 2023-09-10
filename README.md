@@ -11,4 +11,4 @@ El trabajo completo se encuentra en el siguiente repositorio público:
 https://github.com/caexequiel/prog-disp-mov1-Actividad-2.git
 
 Actividad:
-[![Imagen]([https://i.imgur.com/f451234.png](https://lh3.googleusercontent.com/drive-storage/APZSt_esG1bRJCcOqPZY3yNkNa1PlukDPQqshOCzRDF1mM3OA1vMElcYzYCZM7ti6C9g-P-W2YMbMSuE8TOZeElhhp7Zf05Hq8Sx2AUNMHAsGA=w1918-h970)https://lh3.googleusercontent.com/drive-storage/APZSt_esG1bRJCcOqPZY3yNkNa1PlukDPQqshOCzRDF1mM3OA1vMElcYzYCZM7ti6C9g-P-W2YMbMSuE8TOZeElhhp7Zf05Hq8Sx2AUNMHAsGA=w1918-h970)]
+[![Imagen]([https://i.imgur.com/f451234.png](https://firebasestorage.googleapis.com/v0/b/cienciaar-d7b7a.appspot.com/o/modelos3D%2Fotras%20imagenes%2FClase_3_actividad_1.png?alt=media&token=942c49c7-9266-48aa-b14b-16dfc6bf7861)https://firebasestorage.googleapis.com/v0/b/cienciaar-d7b7a.appspot.com/o/modelos3D%2Fotras%20imagenes%2FClase_3_actividad_1.png?alt=media&token=942c49c7-9266-48aa-b14b-16dfc6bf7861)]
